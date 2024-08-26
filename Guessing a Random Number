@@ -1,0 +1,62 @@
+# Importing required Libraries:
+
+import pandas as pd
+import numpy as np
+import math
+
+# Taking first input values / range from the user
+lower = int(input("Enter the lower bound : "))
+# Taking Second input values / range from the user
+upper = int(input("Enter the upper bound : "))
+# print(f'The Range is between {lower}-{upper}')
+x = np.random.randint(lower,upper)
+
+#Based on the Range we can find out the No. of Chances to be given :
+total_number_of_chances = math.ceil(math.log((upper-lower+1),2))
+print('\n\t You have only',total_number_of_chances,'to get the integer\! n')
+
+# Required to Iniialize the guesses
+count = 0
+flag = False # Flag used to control the Flow
+
+while count <total_number_of_chances:
+    count += 1
+    guess = int(input('Guess an number: '))
+    if x == guess:
+        print("Congratulations you did it in ", count, "try")
+        flag = True
+        break
+    elif x < guess:
+        print('Ooops you guessed a Larger No.')
+    elif x > guess:
+        print('Ooops you guessed a Smaller No.')
+
+# If Guessing is more than required guesses
+if not flag:
+    print('\n The Number is %d' %x)
+    print('Better Luck Next Time')
+
+OUTPUT:
+
+Enter the lower bound : 1
+Enter the upper bound : 100
+
+	 You have only 7 to get the integer\! n
+Guess an number: 85
+Ooops you guessed a Larger No.
+Guess an number: 45
+Ooops you guessed a Smaller No.
+Guess an number: 26
+Ooops you guessed a Smaller No.
+Guess an number: 11
+Ooops you guessed a Smaller No.
+Guess an number: 35
+Ooops you guessed a Smaller No.
+Guess an number: 67
+Ooops you guessed a Smaller No.
+Guess an number: 49
+Ooops you guessed a Smaller No.
+
+ The Number is 72
+Better Luck Next Time!
+​
